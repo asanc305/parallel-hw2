@@ -1,0 +1,13 @@
+#!/bin/sh
+#BSUB -q classroom
+#BSUB -J intelmpi_pi
+#BSUB -oo intelmpi_pi.out
+#BSUB -eo intelmpi_pi.err
+#BSUB -n 1
+#BSUB -R "span[ptile=1]"
+#BSUB -a intelmpi
+. $MODULESHOME/../global/profile.modules
+#export I_MPI_DEBUG=5
+module load intel
+mpirun.lsf ./intelmpi_pi
+
